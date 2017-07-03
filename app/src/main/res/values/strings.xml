@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Rmutsv database</string>
+    <string name="login">Login</string>
+    <string name="user">User :</string>
+    <string name="password">Password :</string>
+    <string name="new_register">New Register</string>
+    <string name="name">Name:</string>
 </resources>
