@@ -17,7 +17,7 @@ import com.squareup.okhttp.Response;
 public class PostUserToServer extends AsyncTask<String, Void, String>{
 
     private Context context;
-    private static final String urlPHP = "http://androidthai.in.th/piw/addDataMaster.php";
+    private static final String urlPHP = "http://androidthai.in.th/piw/addDataSupawadee.php";
 
 
     public PostUserToServer(Context context) {
