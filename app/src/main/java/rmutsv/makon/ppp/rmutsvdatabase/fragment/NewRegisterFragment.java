@@ -1,4 +1,4 @@
-package rmutsv.makon.ppp.rmutsvdatabase;
+package rmutsv.makon.ppp.rmutsvdatabase.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,7 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import rmutsv.makon.ppp.rmutsvdatabase.fragment.MainFragment;
+import rmutsv.makon.ppp.rmutsvdatabase.MyAlert;
+import rmutsv.makon.ppp.rmutsvdatabase.R;
 
 /**
  * Created by ppp on 7/3/2017 AD.
@@ -79,6 +80,8 @@ public class NewRegisterFragment extends Fragment{
                     //Have Space
 
                     Log.d("4JulyV1", "Have Space");
+                    MyAlert myAlert = new MyAlert(getActivity());
+                    myAlert.myDialog("Have Space","Please Fill All Every Blank");
 
                 } else {
                     //No Space

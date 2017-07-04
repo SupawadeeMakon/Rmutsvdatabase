@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import rmutsv.makon.ppp.rmutsvdatabase.NewRegisterFragment;
 import rmutsv.makon.ppp.rmutsvdatabase.R;
 
 /**
