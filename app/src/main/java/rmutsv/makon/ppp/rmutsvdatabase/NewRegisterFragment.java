@@ -3,9 +3,12 @@ package rmutsv.makon.ppp.rmutsvdatabase;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 
 import rmutsv.makon.ppp.rmutsvdatabase.fragment.MainFragment;
@@ -15,6 +18,11 @@ import rmutsv.makon.ppp.rmutsvdatabase.fragment.MainFragment;
  */
 
 public class NewRegisterFragment extends Fragment{
+
+    //Explicit
+    private Button button;
+    private EditText nameEditText, userEditText,passwordEditText;
+
 
     public static NewRegisterFragment newInstance(){
         NewRegisterFragment newRegisterFragment = new NewRegisterFragment();
@@ -41,10 +49,53 @@ public class NewRegisterFragment extends Fragment{
         super.onActivityCreated(savedInstanceState);
 
         //Back Controller
+        backController();
+
+        //New Register Controller
+        newRegisterController();
+
+
+    }//onActivityCreate
+
+    private void newRegisterController() {
+
+        //Initial View ผูกความสัมพันธ์ของตัวแปร
+        button = (Button) getView().findViewById(R.id.btnNewRegister);
+        nameEditText = (EditText) getView().findViewById(R.id.edtName);
+        userEditText = (EditText) getView().findViewById(R.id.edtUser);
+        passwordEditText = (EditText) getView().findViewById(R.id.edtPassword);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Get Value From Edit Text
+                String strName = nameEditText.getText().toString().trim(); //ประกาศตัวแปร
+                String strUser = userEditText.getText().toString().trim();
+                String strPassword = passwordEditText.getText().toString().trim();
+
+                //Check Space เช็คช่องว่าง
+                if (strName.length() ==0 || strUser.length()==0 || strPassword.length()==0) {
+                    //Have Space
+
+                    Log.d("4JulyV1", "Have Space");
+
+                } else {
+                    //No Space
+                    Log.d("4JulyV1", "No Space");
+                }
+
+            }
+        });
+
+    }
+
+    private void backController() {
         ImageView imageView = (ImageView) getView().findViewById(R.id.btnBack);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 getActivity().getSupportFragmentManager()
                         .beginTransaction()
                         .replace(R.id.relContent, MainFragment.mainInstance())
@@ -53,9 +104,6 @@ public class NewRegisterFragment extends Fragment{
 
             }
         });
-
-
-
     }
 
 }//Main Class

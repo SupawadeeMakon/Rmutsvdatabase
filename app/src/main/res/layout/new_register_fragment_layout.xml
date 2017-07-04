@@ -57,6 +57,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/edtName"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimaryDark"
                     android:inputType="text"
@@ -77,6 +78,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/edtUser"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimaryDark"
                     android:inputType="text"
@@ -97,6 +99,7 @@
                     android:layout_height="wrap_content" />
 
                 <EditText
+                    android:id="@+id/edtPassword"
                     android:textColor="@color/colorPrimary"
                     android:textColorHint="@color/colorPrimaryDark"
                     android:inputType="text"
