@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 import rmutsv.makon.ppp.rmutsvdatabase.MyAlert;
+import rmutsv.makon.ppp.rmutsvdatabase.PostUserToServer;
 import rmutsv.makon.ppp.rmutsvdatabase.R;
 
 /**
@@ -86,10 +87,46 @@ public class NewRegisterFragment extends Fragment{
                 } else {
                     //No Space
                     Log.d("4JulyV1", "No Space");
+
+                    uploadNewUserToServer(strName,strUser,strPassword);
                 }
 
             }
         });
+
+    }
+
+    private void uploadNewUserToServer(String strName, String strUser, String strPassword) {
+
+        try {
+
+            PostUserToServer postUserToServer = new PostUserToServer(getActivity());
+            postUserToServer.execute(strName,strUser,strPassword);
+
+            String result = postUserToServer.get();
+            Log.d("4JulyV1", "result ==>" + result);
+            if (Boolean.parseBoolean(result)) {
+
+                backHome();
+
+            } else {
+
+                MyAlert myAlert= new MyAlert(getActivity());
+                myAlert.myDialog("Connot Upload Value",
+                        "Please Try Again Cannot Uploade Value to Server");
+
+            }
+
+        } catch (Exception e) {
+            Log.d("4JulyV1", "e upload ==>" + e.toString());
+        }
+
+    }
+
+    private void backHome() {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.relContent, MainFragment.mainInstance())
+                .commit();
 
     }
 
